@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>@zxcynng · Media Kit 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:           #FDF7F9;
+  --bg-section:   #FEF1F5;
+  --bg-card:      #FFFFFF;
+  --bg-accent:    #FCE8EE;
+  --bg-cream:     #FFF9F5;
+
+  --pink:         #D4607C;
+  --pink-mid:     #E08899;
+  --pink-light:   #F2B8C6;
+  --pink-pale:    #FDEEF3;
+  --pink-baby:    #F8D5E1;
+  --pink-dark:    #B04A66;
+
+  --mauve:        #C47A92;
+  --dusty:        #D4919F;
+
+  --text:         #3D1F2E;
+  --text-mid:     #7A4558;
+  --text-soft:    #B08090;
+
+  --gold:         #C8976A;
+
+  --border:       rgba(212,96,124,0.22);
+  --border-soft:  rgba(212,96,124,0.11);
+  --shadow:       rgba(180,70,100,0.11);
+  --shadow-deep:  rgba(180,70,100,0.22);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ── Custom cursor ── */
+.cursor {
+  position: fixed; width: 8px; height: 8px;
+  background: var(--pink); border-radius: 50%;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%,-50%);
+  mix-blend-mode: multiply;
+}
+.cursor-ring {
+  position: fixed; width: 28px; height: 28px;
+  border: 1.5px solid var(--pink-mid); border-radius: 50%;
+  pointer-events: none; z-index: 9998;
+  transform: translate(-50%,-50%);
+}
+
+/* ── Petals ── */
+.petal-container {
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 1; overflow: hidden;
+}
+.petal {
+  position: absolute; top: -30px;
+  animation: petalFall linear infinite;
+  user-select: none; pointer-events: none;
+}
+@keyframes petalFall {
+  0%   { transform: translateY(-30px) rotate(0deg);   opacity: 0.9; }
+  100% { transform: translateY(110vh) rotate(540deg); opacity: 0;   }
+}
+
+/* ══════════════════════════════════════════
+   COVER
+══════════════════════════════════════════ */
+.cover {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 80px 40px 64px;
+  position: relative; overflow: hidden;
+  background:
+    radial-gradient(ellipse 90% 70% at 10% 10%, rgba(248,213,225,0.75) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 90% 85%, rgba(244,194,206,0.65) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 50% 50%, rgba(252,232,238,0.50) 0%, transparent 60%),
+    #FFF9F5;
+}
+/* lace dot overlay */
+.cover::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(circle, rgba(212,96,124,0.07) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+/* rainbow top ribbon */
+.cover::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 5px;
+  background: linear-gradient(90deg, var(--pink-baby), var(--pink-light), var(--pink), var(--mauve), var(--pink), var(--pink-light), var(--pink-baby));
+}
+
+.cover-bow {
+  font-size: 3.2rem;
+  margin-bottom: 10px;
+  position: relative; z-index: 2;
+  display: inline-block;
+  animation: bowFloat 4s ease-in-out infinite;
+}
+@keyframes bowFloat {
+  0%,100% { transform: translateY(0)     rotate(-3deg); }
+  50%      { transform: translateY(-10px) rotate(3deg);  }
+}
+
+.cover-eyebrow {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.15rem;
+  color: var(--pink-mid);
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+  position: relative; z-index: 2;
+}
+
+.cover-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(5.5rem, 16vw, 11rem);
+  font-style: italic; font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  background: linear-gradient(140deg, var(--pink-dark) 0%, var(--pink) 50%, var(--mauve) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  padding-bottom: 0.12em;
+  margin-bottom: 18px;
+  position: relative; z-index: 2;
+}
+
+.cover-subtitle {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  color: var(--dusty);
+  margin-bottom: 30px;
+  position: relative; z-index: 2;
+}
+
+.cover-tags {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  justify-content: center;
+  margin-bottom: 44px;
+  position: relative; z-index: 2;
+}
+.cover-tag {
+  background: rgba(255,255,255,0.88);
+  border: 1px solid var(--border);
+  color: var(--text-mid);
+  padding: 7px 18px; border-radius: 50px;
+  font-size: 0.76rem; letter-spacing: 0.07em; font-weight: 400;
+  box-shadow: 0 2px 12px var(--shadow);
+  backdrop-filter: blur(8px);
+}
+
+.cover-stats {
+  display: flex; gap: 20px; justify-content: center;
+  flex-wrap: wrap; position: relative; z-index: 2;
+}
+.cstat {
+  background: rgba(255,255,255,0.92);
+  border: 1px solid var(--border);
+  border-radius: 22px; padding: 22px 36px;
+  box-shadow: 0 4px 28px var(--shadow);
+  backdrop-filter: blur(16px);
+  min-width: 120px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cstat:hover { transform: translateY(-5px); box-shadow: 0 12px 40px var(--shadow-deep); }
+.cstat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem; font-weight: 700;
+  background: linear-gradient(135deg, var(--pink-dark), var(--mauve));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; line-height: 1.1;
+}
+.cstat-label {
+  font-size: 0.63rem; letter-spacing: 0.15em;
+  color: var(--text-soft); text-transform: uppercase; margin-top: 5px;
+}
+
+.cover-deco {
+  font-size: 1.1rem; margin-top: 36px;
+  color: var(--pink-light); letter-spacing: 0.5em;
+  position: relative; z-index: 2;
+}
+
+/* ── Ribbon dividers ── */
+.ribbon-div {
+  display: flex; align-items: center;
+  justify-content: center; gap: 18px;
+  padding: 22px 40px; font-size: 1.4rem;
+}
+.ribbon-div::before, .ribbon-div::after {
+  content: '';
+  flex: 1; max-width: 280px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+/* ══════════════════════════════════════════
+   SHARED SECTION
+══════════════════════════════════════════ */
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 70px 40px;
+}
+.section-eyebrow {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.1rem; color: var(--pink-mid);
+  margin-bottom: 8px; text-align: center;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 500; color: var(--text);
+  text-align: center; margin-bottom: 50px;
+  line-height: 1.2;
+}
+.section-title em { font-style: italic; color: var(--pink); }
+
+/* ══════════════════════════════════════════
+   ABOUT
+══════════════════════════════════════════ */
+.about-wrap {
+  background: var(--bg-cream);
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
+  position: relative;
+}
+.about-wrap::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(circle, rgba(212,96,124,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px; align-items: start;
+}
+@media (max-width: 720px) { .about-grid { grid-template-columns: 1fr; gap: 36px; } }
+
+.about-text p {
+  font-size: 0.95rem; line-height: 1.9;
+  color: var(--text-mid); margin-bottom: 18px;
+}
+.about-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-size: 1.35rem;
+  color: var(--pink);
+  border-left: 3px solid var(--pink-light);
+  padding: 12px 0 12px 20px;
+  margin: 24px 0; line-height: 1.5;
+}
+
+.niches { display: flex; flex-direction: column; gap: 14px; }
+.niche {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 20px; padding: 18px 20px;
+  display: flex; align-items: center; gap: 14px;
+  box-shadow: 0 2px 16px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative; overflow: hidden;
+}
+.niche::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(180deg, var(--pink-light), var(--pink));
+  border-radius: 3px 0 0 3px;
+}
+.niche:hover { transform: translateX(6px); box-shadow: 0 6px 28px rgba(212,96,124,0.18); }
+.niche-icon {
+  font-size: 1.5rem; width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 14px; flex-shrink: 0;
+}
+.ni-beauty { background: rgba(244,194,206,0.40); }
+.ni-life   { background: rgba(212,96,124,0.09);  }
+.ni-golf   { background: rgba(168,196,166,0.30); }
+.niche-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem; font-style: italic;
+  color: var(--text); margin-bottom: 3px;
+}
+.niche-desc { font-size: 0.76rem; color: var(--text-soft); line-height: 1.5; }
+
+/* ══════════════════════════════════════════
+   STATS BAND
+══════════════════════════════════════════ */
+.stats-band {
+  background: linear-gradient(135deg, var(--bg-accent) 0%, var(--pink-pale) 50%, var(--bg-accent) 100%);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 64px 40px;
+  position: relative; overflow: hidden;
+}
+.stats-band::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(circle, rgba(212,96,124,0.09) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.stats-inner { max-width: 1100px; margin: 0 auto; }
+.stats-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  color: var(--pink); text-align: center; margin-bottom: 44px;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  gap: 18px;
+}
+.stat-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 26px; padding: 34px 20px;
+  text-align: center;
+  box-shadow: 0 4px 24px var(--shadow);
+  position: relative; overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.stat-box::before {
+  content: '';
+  position: absolute; top: 0; left: 15%; right: 15%; height: 3px;
+  background: linear-gradient(90deg, var(--pink-light), var(--pink), var(--pink-light));
+  border-radius: 0 0 6px 6px;
+}
+.stat-box:hover { transform: translateY(-7px); box-shadow: 0 14px 44px rgba(212,96,124,0.22); }
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem; font-weight: 700;
+  background: linear-gradient(135deg, var(--pink-dark) 0%, var(--mauve) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; line-height: 1.1;
+}
+.stat-unit { font-size: 1.4rem; font-weight: 400; }
+.stat-label {
+  font-size: 0.67rem; letter-spacing: 0.12em;
+  color: var(--text-soft); text-transform: uppercase; margin-top: 10px;
+}
+
+/* ══════════════════════════════════════════
+   PILLARS
+══════════════════════════════════════════ */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+  gap: 22px;
+}
+.pillar {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 28px; padding: 38px 32px;
+  position: relative; overflow: hidden;
+  box-shadow: 0 4px 28px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.pillar:hover { transform: translateY(-8px); box-shadow: 0 16px 48px rgba(212,96,124,0.22); }
+.pillar::before {
+  content: '♡';
+  position: absolute; top: 18px; right: 22px;
+  font-size: 0.95rem; color: var(--pink-light); opacity: 0.7;
+}
+.pillar::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 4px; border-radius: 28px 28px 0 0;
+}
+.pillar-beauty::after    { background: linear-gradient(90deg, #F5B8C8, #D4607C, #C47A92); }
+.pillar-lifestyle::after { background: linear-gradient(90deg, #E8C99A, #C8976A, #D4B483); }
+.pillar-golf::after      { background: linear-gradient(90deg, #A8C4A6, #7A9E78, #9AC498); }
+
+.pillar-emoji { font-size: 2.2rem; margin-bottom: 16px; }
+.pillar-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem; font-style: italic;
+  color: var(--text); margin-bottom: 12px;
+}
+.pillar-desc {
+  font-size: 0.83rem; line-height: 1.85;
+  color: var(--text-mid); margin-bottom: 22px;
+}
+.pillar-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.ptag {
+  background: var(--pink-pale);
+  color: var(--pink);
+  border: 1px solid var(--border-soft);
+  border-radius: 50px; padding: 5px 13px;
+  font-size: 0.68rem; letter-spacing: 0.07em;
+}
+
+/* ══════════════════════════════════════════
+   AUDIENCE
+══════════════════════════════════════════ */
+.audience-wrap {
+  background: var(--bg-cream);
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
+  position: relative;
+}
+.audience-wrap::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(circle, rgba(212,96,124,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.aud-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.aud-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 24px; padding: 28px 24px;
+  box-shadow: 0 4px 24px var(--shadow);
+  transition: transform 0.3s ease;
+}
+.aud-card:hover { transform: translateY(-4px); }
+.aud-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; font-style: italic;
+  color: var(--text); margin-bottom: 20px;
+  padding-bottom: 12px; border-bottom: 1px solid var(--border-soft);
+}
+.bar-row { margin-bottom: 14px; }
+.bar-meta {
+  display: flex; justify-content: space-between;
+  font-size: 0.74rem; color: var(--text-mid); margin-bottom: 6px;
+}
+.bar-pct { color: var(--pink); font-weight: 400; }
+.bar-track {
+  height: 6px; background: var(--pink-pale);
+  border-radius: 6px; overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--pink-light), var(--pink));
+  border-radius: 6px; width: 0;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.bar-fill.green-grad { background: linear-gradient(90deg, #A8C8A6, #7A9E78); }
+.bar-fill.gold-grad  { background: linear-gradient(90deg, #E8C99A, #C8976A); }
+
+.geo-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 0; border-bottom: 1px solid var(--border-soft);
+  font-size: 0.82rem; color: var(--text-mid);
+}
+.geo-row:last-child { border-bottom: none; }
+.geo-pct {
+  color: var(--pink); font-weight: 400;
+  font-family: 'Playfair Display', serif;
+}
+
+.insight-list { display: flex; flex-direction: column; gap: 12px; }
+.insight-item { display: flex; align-items: flex-start; gap: 10px; }
+.insight-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--pink-light); flex-shrink: 0; margin-top: 6px;
+}
+.insight-text { font-size: 0.80rem; color: var(--text-mid); line-height: 1.55; }
+.insight-val { color: var(--pink); }
+
+/* ══════════════════════════════════════════
+   COLLAB
+══════════════════════════════════════════ */
+.collab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(228px, 1fr));
+  gap: 20px;
+}
+.collab-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 26px; padding: 34px 28px;
+  box-shadow: 0 4px 24px var(--shadow);
+  text-align: center;
+  position: relative; overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.collab-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--pink-light), var(--pink), var(--pink-light));
+  border-radius: 0 0 26px 26px;
+}
+.collab-card:hover { transform: translateY(-7px); box-shadow: 0 14px 44px rgba(212,96,124,0.22); }
+.collab-icon { font-size: 2.2rem; margin-bottom: 16px; display: block; }
+.collab-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem; font-style: italic;
+  color: var(--text); margin-bottom: 12px;
+}
+.collab-desc { font-size: 0.80rem; line-height: 1.85; color: var(--text-mid); }
+
+/* ══════════════════════════════════════════
+   BRANDS
+══════════════════════════════════════════ */
+.brands-wrap {
+  background: var(--bg-section);
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
+  position: relative;
+}
+.brands-wrap::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(circle, rgba(212,96,124,0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.brands-categories { display: flex; flex-direction: column; gap: 38px; }
+.brand-cat-label {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.15rem; color: var(--pink-mid); margin-bottom: 14px;
+}
+.brands-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.brand-chip {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 50px; padding: 10px 20px 10px 12px;
+  display: flex; align-items: center; gap: 10px;
+  box-shadow: 0 2px 14px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  cursor: default;
+}
+.brand-chip:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 28px rgba(212,96,124,0.22);
+  background: var(--pink-pale);
+}
+.brand-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0;
+}
+.ba-beauty { background: rgba(244,194,206,0.45); }
+.ba-life   { background: rgba(212,96,124,0.09);  }
+.ba-golf   { background: rgba(168,196,166,0.30); }
+.brand-name-text {
+  font-size: 0.82rem; font-weight: 400;
+  color: var(--text-mid); letter-spacing: 0.03em;
+}
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+.footer {
+  background: linear-gradient(180deg, var(--bg-cream) 0%, #F5ECE8 100%);
+  border-top: 1px solid var(--border);
+  text-align: center; padding: 72px 40px 52px;
+  position: relative; overflow: hidden;
+}
+.footer::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 5px;
+  background: linear-gradient(90deg, transparent, var(--pink-light), var(--pink), var(--mauve), var(--pink), var(--pink-light), transparent);
+}
+.footer::after {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(circle, rgba(212,96,124,0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.footer-bow {
+  font-size: 3rem; margin-bottom: 14px;
+  display: block;
+  animation: bowFloat 4s ease-in-out infinite;
+  position: relative; z-index: 2;
+}
+.footer-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem; font-style: italic;
+  background: linear-gradient(135deg, var(--pink-dark), var(--mauve));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; margin-bottom: 8px;
+  position: relative; z-index: 2;
+}
+.footer-handle {
+  font-size: 0.70rem; letter-spacing: 0.22em;
+  color: var(--text-soft); text-transform: uppercase;
+  margin-bottom: 30px; position: relative; z-index: 2;
+}
+.footer-divider {
+  width: 90px; height: 1px;
+  background: var(--border); margin: 0 auto 26px;
+  position: relative; z-index: 2;
+}
+.footer-links {
+  display: flex; gap: 30px; justify-content: center;
+  flex-wrap: wrap; margin-bottom: 26px;
+  position: relative; z-index: 2;
+}
+.footer-links a {
+  font-size: 0.80rem; color: var(--text-mid);
+  text-decoration: none; letter-spacing: 0.06em;
+  padding-bottom: 3px; border-bottom: 1px solid var(--border-soft);
+  transition: color 0.3s, border-color 0.3s;
+}
+.footer-links a:hover { color: var(--pink); border-color: var(--border); }
+.footer-copy {
+  font-size: 0.60rem; letter-spacing: 0.20em;
+  color: var(--text-soft); text-transform: uppercase;
+  opacity: 0.55; position: relative; z-index: 2;
+}
+
+/* ══════════════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════════════ */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal-left {
+  opacity: 0; transform: translateX(-40px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal-right {
+  opacity: 0; transform: translateX(40px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible, .reveal-left.visible, .reveal-right.visible {
+  opacity: 1; transform: translate(0);
+}
+.delay-1 { transition-delay: 0.10s; }
+.delay-2 { transition-delay: 0.20s; }
+.delay-3 { transition-delay: 0.30s; }
+.delay-4 { transition-delay: 0.40s; }
+
+/* ══════════════════════════════════════════
+   VINTAGE LAYER
+══════════════════════════════════════════ */
+
+/* Grain / aged paper texture */
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 9997; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  mix-blend-mode: multiply;
+  opacity: 0.055;
+}
+
+/* Cover vintage double-line frame */
+.cover-vintage-frame {
+  position: absolute; inset: 22px;
+  border: 1px solid rgba(212,96,124,0.22);
+  pointer-events: none; z-index: 2;
+  border-radius: 2px;
+}
+.cover-vintage-frame::before {
+  content: '';
+  position: absolute; inset: 6px;
+  border: 1px solid rgba(212,96,124,0.10);
+  border-radius: 2px;
+}
+
+/* Cover corner ornaments */
+.cov-corner {
+  position: absolute; z-index: 3;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; color: var(--pink-light);
+  opacity: 0.70; pointer-events: none; line-height: 1;
+}
+.cov-corner-tl { top: 36px; left: 38px; }
+.cov-corner-tr { top: 36px; right: 38px; transform: scaleX(-1); }
+.cov-corner-bl { bottom: 36px; left: 38px; transform: scaleY(-1); }
+.cov-corner-br { bottom: 36px; right: 38px; transform: scale(-1); }
+
+/* Vintage ornamental ribbon dividers */
+.ribbon-div {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  color: var(--pink-mid);
+  letter-spacing: 0.35em;
+}
+
+/* Section eyebrow — vintage ruled treatment */
+.section-eyebrow {
+  display: flex; align-items: center;
+  justify-content: center; gap: 14px;
+}
+.section-eyebrow::before, .section-eyebrow::after {
+  content: '';
+  flex: 1; max-width: 80px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+/* Stat labels — vintage small-caps */
+.stat-label {
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+}
+.cstat-label {
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+}
+
+/* Pillar corner — vintage floral */
+.pillar::before { content: '❧'; }
+
+/* Vintage collab card top ornament */
+.collab-card::before {
+  content: '✦';
+  position: absolute; top: 14px; right: 18px;
+  font-size: 0.7rem; color: var(--pink-light); opacity: 0.6;
+  font-family: serif;
+}
+
+/* Stat box corner ornament */
+.stat-box::after {
+  content: '❧';
+  position: absolute; top: 10px; right: 14px;
+  font-size: 0.65rem; color: var(--pink-light); opacity: 0.5;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Vintage about quote */
+.about-quote {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+/* Vintage section title ornament */
+.section-title::after {
+  display: block;
+  content: '✦ ── ✦';
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.5em;
+  color: var(--pink-light);
+  margin-top: 10px;
+  font-style: normal;
+}
+
+/* Footer vintage rule */
+.footer-vintage-rule {
+  display: flex; align-items: center; gap: 14px;
+  max-width: 280px; margin: 0 auto 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem; color: var(--pink-light);
+  letter-spacing: 0.3em;
+}
+.footer-vintage-rule::before, .footer-vintage-rule::after {
+  content: '';
+  flex: 1; height: 1px;
+  background: var(--border-soft);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .cover { padding: 70px 24px 50px; }
+  .cover-stats { flex-direction: column; align-items: center; }
+  .section { padding: 50px 24px; }
+  .stats-band { padding: 50px 24px; }
+  .brands-row { justify-content: center; }
+  .footer { padding: 60px 24px 44px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Petals -->
+<div class="petal-container" id="petals"></div>
+
+<!-- ══════════ COVER ══════════ -->
+<section class="cover">
+  <div class="cover-vintage-frame"></div>
+  <div class="cov-corner cov-corner-tl">❧</div>
+  <div class="cov-corner cov-corner-tr">❧</div>
+  <div class="cov-corner cov-corner-bl">❧</div>
+  <div class="cov-corner cov-corner-br">❧</div>
+  <div class="cover-bow">🎀</div>
+  <div class="cover-eyebrow">✦ Media Kit · 2026 ✦</div>
+  <div class="cover-title">zxcynng</div>
+  <div class="cover-subtitle">Beauty · Lifestyle · Golf</div>
+  <div class="cover-tags">
+    <span class="cover-tag">💄 Beauty</span>
+    <span class="cover-tag">✨ Lifestyle</span>
+    <span class="cover-tag">⛳ Golf</span>
+    <span class="cover-tag">🎀 Content Creator</span>
+  </div>
+  <div class="cover-stats">
+    <div class="cstat">
+      <div class="cstat-num">50K</div>
+      <div class="cstat-label">Followers</div>
+    </div>
+    <div class="cstat">
+      <div class="cstat-num">20M</div>
+      <div class="cstat-label">Monthly Views</div>
+    </div>
+    <div class="cstat">
+      <div class="cstat-num">3M</div>
+      <div class="cstat-label">Total Likes</div>
+    </div>
+  </div>
+  <div class="cover-deco">🌸 ♡ 🌸</div>
+</section>
+
+<div class="ribbon-div">❧ ✦ ❧</div>
+
+<!-- ══════════ ABOUT ══════════ -->
+<div class="about-wrap">
+  <div class="section">
+    <div class="section-eyebrow reveal">About Me</div>
+    <div class="section-title reveal delay-1">Creating content that <em>feels like you.</em></div>
+    <div class="about-grid">
+      <div class="reveal-left">
+        <div class="about-text">
+          <p>Hi, I'm Zxcy — the creator behind @zxcynng on TikTok, where beauty, lifestyle, and golf collide in the most unexpected and delightful way.</p>
+          <div class="about-quote">"Where glam meets the green."</div>
+          <p>With 50,000 followers and a community built on trust and authenticity, I create content that feels personal, polished, and genuinely relatable. Brands I feature become brands my audience loves.</p>
+        </div>
+      </div>
+      <div class="niches reveal-right">
+        <div class="niche">
+          <div class="niche-icon ni-beauty">💄</div>
+          <div class="niche-info">
+            <div class="niche-name">Beauty</div>
+            <div class="niche-desc">Reviews, tutorials, GRWM — honest and gorgeous</div>
+          </div>
+        </div>
+        <div class="niche">
+          <div class="niche-icon ni-life">✨</div>
+          <div class="niche-info">
+            <div class="niche-name">Lifestyle</div>
+            <div class="niche-desc">Travel, fashion, wellness, and everyday finds</div>
+          </div>
+        </div>
+        <div class="niche">
+          <div class="niche-icon ni-golf">⛳</div>
+          <div class="niche-info">
+            <div class="niche-name">Golf</div>
+            <div class="niche-desc">Course vlogs, gear, golf fashion — a rare voice</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ribbon-div">✦ ❧ ✦</div>
+
+<!-- ══════════ STATS ══════════ -->
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="stats-title reveal">The numbers speak for themselves, darling.</div>
+    <div class="stats-grid">
+      <div class="stat-box reveal delay-1">
+        <div class="stat-number">50<span class="stat-unit">K</span></div>
+        <div class="stat-label">TikTok Followers</div>
+      </div>
+      <div class="stat-box reveal delay-2">
+        <div class="stat-number">20<span class="stat-unit">M</span></div>
+        <div class="stat-label">Monthly Views</div>
+      </div>
+      <div class="stat-box reveal delay-3">
+        <div class="stat-number">3<span class="stat-unit">M</span></div>
+        <div class="stat-label">Total Likes</div>
+      </div>
+      <div class="stat-box reveal delay-2">
+        <div class="stat-number">15<span class="stat-unit">%</span></div>
+        <div class="stat-label">Like-to-View Rate</div>
+      </div>
+      <div class="stat-box reveal delay-3">
+        <div class="stat-number">68<span class="stat-unit">%</span></div>
+        <div class="stat-label">Female Audience</div>
+      </div>
+      <div class="stat-box reveal delay-4">
+        <div class="stat-number">95<span class="stat-unit">%</span></div>
+        <div class="stat-label">Positive Sentiment</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ribbon-div">❧ ✦ ❧</div>
+
+<!-- ══════════ PILLARS ══════════ -->
+<div class="section">
+  <div class="section-eyebrow reveal">Content</div>
+  <div class="section-title reveal delay-1">What I <em>create.</em></div>
+  <div class="pillars-grid">
+    <div class="pillar pillar-beauty reveal delay-2">
+      <div class="pillar-emoji">💄</div>
+      <div class="pillar-name">Beauty</div>
+      <div class="pillar-desc">From drugstore gems to luxury launches — honest, detailed, and always gorgeous. My beauty content drives real purchasing decisions.</div>
+      <div class="pillar-tags">
+        <span class="ptag">Makeup</span>
+        <span class="ptag">Skincare</span>
+        <span class="ptag">GRWM</span>
+        <span class="ptag">Haul</span>
+      </div>
+    </div>
+    <div class="pillar pillar-lifestyle reveal delay-3">
+      <div class="pillar-emoji">🌿</div>
+      <div class="pillar-name">Lifestyle</div>
+      <div class="pillar-desc">Day-in-the-life, travel moments, fashion finds — content that's aspirational but feels like a best friend recommending something she loves.</div>
+      <div class="pillar-tags">
+        <span class="ptag">Travel</span>
+        <span class="ptag">Fashion</span>
+        <span class="ptag">Wellness</span>
+        <span class="ptag">DITL</span>
+      </div>
+    </div>
+    <div class="pillar pillar-golf reveal delay-4">
+      <div class="pillar-emoji">⛳</div>
+      <div class="pillar-name">Golf</div>
+      <div class="pillar-desc">A rare and growing niche on TikTok. I bring golf to a new generation — course vlogs, gear reviews, and making the sport feel fresh and stylish.</div>
+      <div class="pillar-tags">
+        <span class="ptag">Course Vlogs</span>
+        <span class="ptag">Gear</span>
+        <span class="ptag">Golf Fashion</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ribbon-div">✦ ❧ ✦</div>
+
+<!-- ══════════ AUDIENCE ══════════ -->
+<div class="audience-wrap">
+  <div class="section">
+    <div class="section-eyebrow reveal">Audience</div>
+    <div class="section-title reveal delay-1">Who's <em>watching.</em></div>
+    <div class="aud-grid">
+
+      <div class="aud-card reveal delay-1">
+        <div class="aud-card-title">Age Breakdown</div>
+        <div class="bar-row">
+          <div class="bar-meta"><span>18 – 24</span><span class="bar-pct">38%</span></div>
+          <div class="bar-track"><div class="bar-fill" data-width="38"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-meta"><span>25 – 34</span><span class="bar-pct">34%</span></div>
+          <div class="bar-track"><div class="bar-fill" data-width="34"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-meta"><span>35 – 44</span><span class="bar-pct">18%</span></div>
+          <div class="bar-track"><div class="bar-fill" data-width="18"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-meta"><span>45+</span><span class="bar-pct">10%</span></div>
+          <div class="bar-track"><div class="bar-fill" data-width="10"></div></div>
+        </div>
+      </div>
+
+      <div class="aud-card reveal delay-2">
+        <div class="aud-card-title">Gender Split</div>
+        <div class="bar-row">
+          <div class="bar-meta"><span>Female</span><span class="bar-pct">68%</span></div>
+          <div class="bar-track"><div class="bar-fill" data-width="68"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-meta"><span>Male</span><span class="bar-pct">30%</span></div>
+          <div class="bar-track"><div class="bar-fill green-grad" data-width="30"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-meta"><span>Other</span><span class="bar-pct">2%</span></div>
+          <div class="bar-track"><div class="bar-fill gold-grad" data-width="2"></div></div>
+        </div>
+      </div>
+
+      <div class="aud-card reveal delay-2">
+        <div class="aud-card-title">Top Locations</div>
+        <div class="geo-row"><span>🇵🇭 Philippines</span><span class="geo-pct">42%</span></div>
+        <div class="geo-row"><span>🇺🇸 United States</span><span class="geo-pct">24%</span></div>
+        <div class="geo-row"><span>🇦🇺 Australia</span><span class="geo-pct">10%</span></div>
+        <div class="geo-row"><span>🇨🇦 Canada</span><span class="geo-pct">8%</span></div>
+        <div class="geo-row"><span>🌍 Rest of World</span><span class="geo-pct">16%</span></div>
+      </div>
+
+      <div class="aud-card reveal delay-3">
+        <div class="aud-card-title">Audience Insights</div>
+        <div class="insight-list">
+          <div class="insight-item">
+            <div class="insight-dot"></div>
+            <div class="insight-text">Best posting days: <span class="insight-val">Tue – Thu</span></div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-dot"></div>
+            <div class="insight-text">Peak hours: <span class="insight-val">7 – 9 PM</span></div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-dot"></div>
+            <div class="insight-text">Avg watch time: <span class="insight-val">&gt; 75% completion</span></div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-dot"></div>
+            <div class="insight-text">Top content: <span class="insight-val">Reviews &amp; GRWM</span></div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-dot"></div>
+            <div class="insight-text">Comment sentiment: <span class="insight-val">95% positive</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="ribbon-div">❧ ✦ ❧</div>
+
+<!-- ══════════ COLLAB ══════════ -->
+<div class="section">
+  <div class="section-eyebrow reveal">Collaboration</div>
+  <div class="section-title reveal delay-1">Let's work <em>together.</em></div>
+  <div class="collab-grid">
+    <div class="collab-card reveal delay-1">
+      <div class="collab-icon">🎁</div>
+      <div class="collab-title">Gifted / PR</div>
+      <div class="collab-desc">Send your product and I'll feature it naturally in my content. Perfect for brand awareness, honest reviews, and reaching new audiences.</div>
+    </div>
+    <div class="collab-card reveal delay-2">
+      <div class="collab-icon">🎬</div>
+      <div class="collab-title">Dedicated Video</div>
+      <div class="collab-desc">A full TikTok dedicated to your brand — styled review, tutorial, unboxing, or storytelling. Your brand, front and center.</div>
+    </div>
+    <div class="collab-card reveal delay-3">
+      <div class="collab-icon">💫</div>
+      <div class="collab-title">Integrated Mention</div>
+      <div class="collab-desc">Your product woven organically into my lifestyle or beauty content — seamless, natural, and highly effective.</div>
+    </div>
+    <div class="collab-card reveal delay-4">
+      <div class="collab-icon">🎀</div>
+      <div class="collab-title">Brand Ambassador</div>
+      <div class="collab-desc">Ongoing partnership with consistent content, exclusive promotions, and a deeper relationship with my audience over time.</div>
+    </div>
+  </div>
+</div>
+
+<div class="ribbon-div">✦ ❧ ✦</div>
+
+<!-- ══════════ PAST BRANDS ══════════ -->
+<div class="brands-wrap">
+  <div class="section">
+    <div class="section-eyebrow reveal">Past Work</div>
+    <div class="section-title reveal delay-1">Brands I've <em>worked with.</em></div>
+    <div class="brands-categories">
+
+      <!-- Beauty -->
+      <div class="reveal delay-1">
+        <div class="brand-cat-label">💄 Beauty</div>
+        <div class="brands-row">
+          <div class="brand-chip">
+            <div class="brand-avatar ba-beauty">💄</div>
+            <span class="brand-name-text">Charlotte Tilbury</span>
+          </div>
+          <div class="brand-chip">
+            <div class="brand-avatar ba-beauty">✨</div>
+            <span class="brand-name-text">Rare Beauty</span>
+          </div>
+          <div class="brand-chip">
+            <div class="brand-avatar ba-beauty">🌹</div>
+            <span class="brand-name-text">Fenty Beauty</span>
+          </div>
+          <div class="brand-chip">
+            <div class="brand-avatar ba-beauty">💋</div>
+            <span class="brand-name-text">e.l.f. Cosmetics</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lifestyle -->
+      <div class="reveal delay-2">
+        <div class="brand-cat-label">✨ Lifestyle</div>
+        <div class="brands-row">
+          <div class="brand-chip">
+            <div class="brand-avatar ba-life">🌿</div>
+            <span class="brand-name-text">Revolve</span>
+          </div>
+          <div class="brand-chip">
+            <div class="brand-avatar ba-life">👗</div>
+            <span class="brand-name-text">ZARA</span>
+          </div>
+          <div class="brand-chip">
+            <div class="brand-avatar ba-life">✈️</div>
+            <span class="brand-name-text">Amazon</span>
+          </div>
+          <div class="brand-chip">
+            <div class="brand-avatar ba-life">💎</div>
+            <span class="brand-name-text">ASOS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Golf -->
+      <div class="reveal delay-3">
+        <div class="brand-cat-label">⛳ Golf</div>
+        <div class="brands-row">
+          <div class="brand-chip">
+            <div class="brand-avatar ba-golf">⛳</div>
+            <span class="brand-name-text">Callaway</span>
+          </div>
+          <div class="brand-chip">
+            <div class="brand-avatar ba-golf">🏌️</div>
+            <span class="brand-name-text">G/Fore</span>
+          </div>
+          <div class="brand-chip">
+            <div class="brand-avatar ba-golf">🌿</div>
+            <span class="brand-name-text">Malbon Golf</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ FOOTER ══════════ -->
+<div class="footer">
+  <span class="footer-bow">🎀</span>
+  <div class="footer-name">@zxcynng</div>
+  <div class="footer-handle">TikTok · 50,000 Followers</div>
+  <div class="footer-vintage-rule">❧ ✦ ❧</div>
+  <div class="footer-links">
+    <a href="mailto:nngzxcy@gmail.com">nngzxcy@gmail.com</a>
+    <a href="#">tiktok.com/@zxcynng</a>
+  </div>
+  <div class="footer-copy">@zxcynng · Media Kit 2026 · All statistics are approximate</div>
+</div>
+
+<script>
+/* ── Custom cursor ── */
+const cursor = document.getElementById('cursor');
+const ring   = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top  = my + 'px';
+});
+
+(function raf() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px';
+  ring.style.top  = ry + 'px';
+  requestAnimationFrame(raf);
+})();
+
+/* ── Petals / hearts ── */
+const petalEmojis = ['🌸','🩷','💗','🌺','♡','🌷','🎀'];
+const petalCont   = document.getElementById('petals');
+
+function spawnPetal() {
+  const p = document.createElement('div');
+  p.className = 'petal';
+  p.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
+  p.style.left        = Math.random() * 100 + 'vw';
+  p.style.fontSize    = (9 + Math.random() * 10) + 'px';
+  const dur = 10 + Math.random() * 10;
+  p.style.animationDuration = dur + 's';
+  p.style.animationDelay    = (Math.random() * 4) + 's';
+  petalCont.appendChild(p);
+  setTimeout(() => p.remove(), (dur + 5) * 1000);
+}
+for (let i = 0; i < 12; i++) setTimeout(spawnPetal, i * 700);
+setInterval(spawnPetal, 2500);
+
+/* ── Scroll reveal ── */
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => revealObs.observe(el));
+
+/* ── Animated bars ── */
+const barObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.bar-fill').forEach(bar => {
+        bar.style.width = bar.dataset.width + '%';
+      });
+      barObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.aud-card').forEach(c => barObs.observe(c));
+
+/* ── Counter animation ── */
+function animateCount(node, target) {
+  let cur = 0;
+  const step  = target / 60;
+  const timer = setInterval(() => {
+    cur += step;
+    if (cur >= target) { cur = target; clearInterval(timer); }
+    node.textContent = target >= 100 ? Math.floor(cur) : cur.toFixed(1);
+  }, 16);
+}
+
+const statObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.stat-number').forEach(el => {
+        const text  = el.textContent.trim();
+        const match = text.match(/([\d.]+)([KM%]+)/);
+        if (!match) return;
+        const num    = parseFloat(match[1]);
+        const suffix = el.querySelector('.stat-unit')?.textContent ?? match[2];
+        el.innerHTML = '0<span class="stat-unit">' + suffix + '</span>';
+        animateCount(el.firstChild, num);
+      });
+      statObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('.stats-band').forEach(s => statObs.observe(s));
+</script>
+
+</body>
+</html>

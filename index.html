@@ -107,6 +107,35 @@ body {
   background: linear-gradient(90deg, var(--pink-baby), var(--pink-light), var(--pink), var(--mauve), var(--pink), var(--pink-light), var(--pink-baby));
 }
 
+/* Cover vintage border frame */
+.cover-vintage-frame {
+  position: absolute;
+  inset: 18px;
+  border: 1.5px solid rgba(212,96,124,0.30);
+  pointer-events: none;
+  z-index: 2;
+}
+.cover-vintage-frame::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(212,96,124,0.16);
+}
+.cov-corner {
+  position: absolute;
+  width: 40px; height: 40px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: var(--pink);
+  opacity: 0.55;
+  line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.cov-corner.tl { top: 22px;  left: 22px; }
+.cov-corner.tr { top: 22px;  right: 22px; transform: scaleX(-1); }
+.cov-corner.bl { bottom: 22px; left: 22px;  transform: scaleY(-1); }
+.cov-corner.br { bottom: 22px; right: 22px; transform: scale(-1,-1); }
+
 .cover-bow {
   font-size: 3.2rem;
   margin-bottom: 10px;
@@ -761,6 +790,11 @@ body::after {
 
 <!-- ══════════ COVER ══════════ -->
 <section class="cover">
+  <div class="cover-vintage-frame"></div>
+  <div class="cov-corner tl">❧</div>
+  <div class="cov-corner tr">❧</div>
+  <div class="cov-corner bl">❧</div>
+  <div class="cov-corner br">❧</div>
   <div class="cover-bow">🎀</div>
   <div class="cover-eyebrow">✦ Media Kit · 2026 ✦</div>
   <div class="cover-title">zxcynng</div>
